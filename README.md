@@ -7,4 +7,7 @@
 내용
 
 ## 2024-03-13
-내용
+// arrow  function expression을 사용
+const multiply = (a, b) =>{
+    return a + b;
+}
