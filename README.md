@@ -56,4 +56,5 @@ const multiply = (a, b) =>{
 
 ## 기타
 npm uninstall -g   
+npm install -g
 npm create-react-app 프로젝트이름
