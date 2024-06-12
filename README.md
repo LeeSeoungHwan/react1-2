@@ -1,5 +1,106 @@
 # 이승환 202030122
 
+## 2024-06-12
+* **CSS**
+    * CSS는 Cascading Style Sheets의 약자로 스타일링을 위한 언어이다
+    * Cascading이란 계단식이라는 뜻으로 한 엘리먼트에 여러 스타일이 적요오딜 경우 스타일간의 충돌을 막기 위해 계단식으로 스타일을 적용시키는 규칙을 갖고 있다
+    * 하나의 스타일이 여러 개의 엘리먼트에 적용될 수고 있고, 하나의 엘리먼트에도 여러 개의 스타일이 저용될 수도 있다
+    * 엘리먼트에 스타일이 적용되는 규칙을 selector라고 한다 CSS는 이 선택자와 스타일로 이루어 진다
+
+* **CSS문법과 선택자**
+    * 선택자를 먼저 쓰고 다음에 적용할 스타일을 중괄호 안에 세미콜론으로 구분하여 하나씩 작성한다
+    * 선택자는 HTML 엘리먼트를 직접 넣어도 되고, 엘리먼트의 조합 혹은 class의 형태로 작성 가능하다
+    * 스타일은 property와 key value로 이루어 지며, 이들은 콜론(:)으로 구분하고 각 스타일은 세미콜론(;)으로 구분한다
+
+* **태그를 직접 사용**
+    ```
+    h1{
+        color : green;
+    }
+    ```
+
+* **class 선택자 - HTML 태그로 특정할 수 없는 스타일은 모두 class로 정의**
+    ```
+    <span class = "medium">
+    </span>
+
+    <p class = "medium">
+    </p>
+
+    .medium{
+        font-size: 20px;
+    }
+
+    p.medium{
+        font-size: 20px;
+    }
+    ```
+
+* **선택자**
+    ```
+    *{
+        font-size: 20px;
+        color: blue;
+    }
+    ```
+
+* **구릅 선택자**
+    ```
+    h1, h2, p{
+        color : black;
+        text-align: center;
+    }
+    ```
+
+* **상태 선택자**
+    ```
+    button:hover{
+        font-weight:bold;
+    }
+    ```
+    * hover, active, focus, checked, first-child, last-child 등등
+
+* **레이아웃과 관련된 속성**
+    * 화면에 엘리먼트를 어떻게 배치할 것인지를 정의 한다
+    * 가장 중요한 속성은 display이다
+    * 모든 엘리먼트는 기본 display 속성을 갖고 있지만 이 기본값을 변경해 줄 수 있다
+    * none은 존재는 하지만 화면에 보이지 않는 것으로 자바스크립트를 넣을때 많이 사용
+    * block은 세로로 정렬, width의 height를 갖을 수 있다, 크기와 상관없이 한 줄을 점유
+    * inline은 가로로 정렬, width의 height를 갖을 수 없다, 컨텐츠의 크기만큼 공간을 점유
+    * inline-block은 기본적으로 inline의 특성을 갖지만, width와 height등 block의 특성을 상요할 수 있다
+
+* **대표적인 block과 inline 태그**
+    * Block: 
+    ```
+    <div> <table> <h1>~<h6> <p> <form> <ul> <ol> <li> <dl> <dt> <dd> <pre>
+    ```
+    * inline
+    ```
+    <span> <a> <br> <em> <strong> <input> <label> <img>
+    ```
+
+* **레이아웃과 관련된 속성**
+    * visibility 속성은 엘리먼트의 가시성을 정의
+    * display:none은 엘리먼트의 영역이 보이지 않고, visibility:hidden은 차지하는 영역은 보인다
+    * position 속성은 엘리먼트를 어떻게 위치 시킬 거신지를 정의
+    * static은 원래 순서대로 위치
+    * fixed는 window에 상재거 위치라고 정의 하지만 지금은 sticky로 변경
+    * relative는 상대저그 absolute는 절대적 위치를 지정
+
+* **styled-components**
+    * CSS문법을 그대로 사용하면서 결과물을 스타일링 된 컴포넌트 형태로 만들어 주는 오픈소스 라이브러리이다.
+    * 컴포넌트의 개념을 사용하고 있어 리액트 개발에 많이 사용됨
+    * styled-components 설치하기
+        * npm install --save styled-components
+    * styled-components 기본 사용법
+        * 태그도 템플릿 리터럴을 사용하여 구성 요소의 스타일을 지정
+        * 태그드 템플릿 리터럴은 자바 스크립트에서 제공하는 문법 중 하나로 리터럴을 템플릿 형태로 사용
+    * styled-components의 porps 사용
+        * props를 사용하여 조건이나 공적으로 변하는 값을 사용하여 스타일링을 할 수 있다
+    * styled-components의 스타일 확장하기
+        * 먼저 정의한 스타일 컴포넌트에 스타일을 추가하여 재정의 하는 것이 가능하다
+    
+
 ## 2024-06-11
 * **Specialization**
     * 웰컴다이얼로그는 다이얼로그의 특별한 케이스 이다.
@@ -11,7 +112,12 @@
 * **Containment와 Specialization을 같이 사용하기**
     * Containment를 위해서 propschildren을 사용하고, Specialization을 위해 직접 정의한 props를 사용한면 된다
     * Dialog 컴포넌트는 이전의 것과 비슷한다 Containment를위해 끝부분에 props.children을 사용 했다
-    * Dialog를 사용하는 SignUpDialog는 Specializaion을 위해 props인 title, message에 값을넣어주고 있고, 입력을 받기위해 <input>과 <button>을 사용한다
+    * Dialog를 사용하는 SignUpDialog는 Specializaion을 위해 props인 title, message에 값을넣어주고 있고, 입력을 받기위해 이 둘을 사용한다
+    ```
+    <input> 
+    <button>
+    ```
+    
     * 이 두개의 태크는 모두 props.children으로 전달되어 다이얼로그에 표시된다.
     * 이러한 형태로 Containment와 Specialization을 동시에 사용할 수 있다.
 
